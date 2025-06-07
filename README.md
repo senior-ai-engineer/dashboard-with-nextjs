@@ -7,6 +7,10 @@
 ## About
 ACME is a full-stack project I built to learn the foundations of Next.js. The website includes a dashboard where users can monitor invoices, view revenue stats, and check customer details.
 
+## Credentials
+* Email: user@nextmail.com
+* Password: 123456
+
 ## Installation
 
 - Clone the repo: `git clone https://github.com/catherineisonline/dashboard-with-nextjs.git`
@@ -47,7 +51,8 @@ STACK_SECRET_SERVER_KEY=your_secret_server_key
 - tailwindcss (3.4.17)
 - postgres (^3.4.6)
 - typescript (5.7.3)
-
+- zod (^3.25.17)
+- bcrypt (^5.1.1)
 
 ## Things I learned and implemented
 
@@ -56,6 +61,14 @@ STACK_SECRET_SERVER_KEY=your_secret_server_key
 3. Used SQL to fetch the data, which was already pre-written, but I learned how you can cut down the amount of data if you need something specific instead of requesting the entire data and cutting it down on the client side.
 4. Applied Streaming to make sure slow data requests don’t block the entire website. The user can start some type of interaction with the UI. For example, imagine you have a navigation and dashboard with some stats. You show the nav right away and add a loader to the stats table so the user isn’t completely blocked from doing anything.
 5. Practiced how to handle search functionality using URL parameters instead of creating states. As a general rule, if you want to read something from a URL (e.g. /products?category=shoes), use the useSearchParams() hook because there is no need to go to the server.
+6. Used server actions for the invoice creation form. To mark a function as a server action, need to make sure we add 'use server' at the start of the module where we write actions, or include it in the action itself if it’s directly created in the Client or Server component.
+7. Added Zod TypeScript validation library to validate form data types.
+8. Added path revalidation to make sure that the server sends new data for invoices, updates the cache, and reflects new data asap. This works great along with the built-in redirect function to go back to the invoices table.
+9. To handle any errors for route segments and show more user-friendly errors, added a built-in error API that allows you to display a fallback UI
+10. Implemented form validation for invoice creation and editing using server-side validation using the useActionState hook. A bit confusing at the start, but I think it should be relatively easy after several such implementations.
+11. Learned to differentiate between authentication (proving your identity when logging in) and authorization (what you are allowed to see and do).
+12. Added authentication using NextAuth.js, authorization to make sure that if a person isn’t logged in, they can’t access the dashboard. Used bcrypt for hashing the password. All this is new for me in practice. I would say it’s a lot in one go, but I think I want to try this again.
+13. Added metadata, this was easy.
 
 ## Contributions
 
