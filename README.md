@@ -7,13 +7,9 @@
 ## About
 ACME is a full-stack project I built to learn the foundations of Next.js. The website includes a dashboard where users can monitor invoices, view revenue stats, and check customer details.
 
-## Credentials
-* Email: user@nextmail.com
-* Password: 123456
-
 ## Installation
 
-- Clone the repo: `git clone https://github.com/catherineisonline/dashboard-with-nextjs.git`
+- Clone the repo: `git clone https://github.com/senior-ai-engineer/dashboard-with-nextjs.git`
 
 - Navigate into the project folder: `cd acme`
 
